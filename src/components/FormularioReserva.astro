@@ -1,39 +1,59 @@
-<form class="p-8 space-y-6" aria-describedby="form-help">
+<form id="booking-form" class="p-8 space-y-6" aria-describedby="form-help">
   <p id="form-help" class="sr-only">
     Todos los campos son obligatorios.
   </p>
 
-  <div class="grid md:grid-cols-2 gap-6">
+  <div aria-live="polite" id="form-status" class="sr-only"></div>
 
-    <div class="space-y-2">
-      <label for="origin" class="block font-semibold">Origen (Aeropuerto)</label>
-      <select
-        id="origin"
-        name="origin"
-        required
-        autocomplete="off"
-        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
-      >
-        <option value="">Selecciona...</option>
-        <option value="tfs">Tenerife Sur (TFS)</option>
-        <option value="tfn">Tenerife Norte (TFN)</option>
-      </select>
+  <fieldset class="space-y-4">
+    <legend class="font-semibold text-lg">Datos del traslado</legend>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <div class="space-y-2">
+        <label for="origin" class="block font-semibold">Origen (Aeropuerto)</label>
+        <select
+          id="origin"
+          name="origin"
+          required
+          aria-required="true"
+          aria-invalid="false"
+          autocomplete="off"
+          class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+        >
+          <option value="">Selecciona...</option>
+          <option value="tfs">Tenerife Sur (TFS)</option>
+          <option value="tfn">Tenerife Norte (TFN)</option>
+        </select>
+        <p id="origin-error" class="text-red-600 text-sm hidden">
+          Selecciona un aeropuerto válido.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <label for="dest" class="block font-semibold">Destino</label>
+        <input
+          type="text"
+          id="dest"
+          name="dest"
+          required
+          aria-required="true"
+          aria-invalid="false"
+          aria-describedby="dest-help dest-error"
+          autocomplete="address-line1"
+          placeholder="Hotel o Ciudad"
+          class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+        />
+        <p id="dest-help" class="text-sm text-gray-500">
+          Introduce hotel, dirección o ciudad.
+        </p>
+        <p id="dest-error" class="text-red-600 text-sm hidden">
+          Introduce un destino válido.
+        </p>
+      </div>
+
     </div>
-
-    <div class="space-y-2">
-      <label for="dest" class="block font-semibold">Destino</label>
-      <input
-        type="text"
-        id="dest"
-        name="dest"
-        required
-        autocomplete="address-line1"
-        placeholder="Hotel o Ciudad"
-        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
-      />
-    </div>
-
-  </div>
+  </fieldset>
 
   <div class="space-y-2">
     <label for="email" class="block font-semibold">Correo Electrónico</label>
@@ -42,17 +62,23 @@
       id="email"
       name="email"
       required
+      aria-required="true"
+      aria-invalid="false"
+      aria-describedby="email-help email-error"
       autocomplete="email"
-      aria-describedby="email-help"
       class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
     />
     <p id="email-help" class="text-sm text-gray-500">
       Usaremos este correo para enviarte la confirmación.
     </p>
+    <p id="email-error" class="text-red-600 text-sm hidden">
+      Introduce un correo electrónico válido.
+    </p>
   </div>
 
   <button
     type="submit"
+    aria-label="Confirmar reserva"
     class="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors focus-ring"
   >
     Confirmar Reserva

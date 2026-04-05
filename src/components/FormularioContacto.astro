@@ -1,41 +1,71 @@
-<form class="space-y-6">
-  <div class="space-y-2">
-    <label for="name" class="block font-semibold">Nombre Completo</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      required
-      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
-    />
-  </div>
+<form id="contact-form" class="space-y-6" aria-describedby="contact-help">
+  <p id="contact-help" class="sr-only">
+    Todos los campos son obligatorios para enviar el mensaje.
+  </p>
 
-  <div class="space-y-2">
-    <label for="email" class="block font-semibold">Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      required
-      autocomplete="email"
-      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
-    />
-  </div>
+  <div aria-live="polite" id="contact-status" class="sr-only"></div>
 
-  <div class="space-y-2">
-    <label for="message" class="block font-semibold">Mensaje</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="4"
-      required
-      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
-    ></textarea>
-  </div>
+  <fieldset class="space-y-4">
+    <legend class="font-semibold text-lg">Formulario de Contacto</legend>
+
+    <div class="space-y-2">
+      <label for="name" class="block font-semibold">Nombre Completo</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        aria-required="true"
+        aria-invalid="false"
+        aria-describedby="name-error"
+        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+      />
+      <p id="name-error" class="text-red-600 text-sm hidden">
+        Introduce tu nombre completo.
+      </p>
+    </div>
+
+    <div class="space-y-2">
+      <label for="email" class="block font-semibold">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        aria-required="true"
+        aria-invalid="false"
+        aria-describedby="email-error"
+        autocomplete="email"
+        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+      />
+      <p id="email-error" class="text-red-600 text-sm hidden">
+        Introduce un correo electrónico válido.
+      </p>
+    </div>
+
+    <div class="space-y-2">
+      <label for="message" class="block font-semibold">Mensaje</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        aria-required="true"
+        aria-invalid="false"
+        aria-describedby="message-error"
+        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+      ></textarea>
+      <p id="message-error" class="text-red-600 text-sm hidden">
+        El mensaje no puede estar vacío.
+      </p>
+    </div>
+
+  </fieldset>
 
   <button
     type="submit"
-    class="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors"
+    aria-label="Enviar mensaje"
+    class="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors focus-ring"
   >
     Enviar Mensaje
   </button>
