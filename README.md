@@ -1,46 +1,94 @@
-# Astro Starter Kit: Basics
+# Prototipo Frontend · Tenerife Taxi Transfers
 
-```sh
-npm create astro@latest -- --template basics
+## Descripción del proyecto
+
+Este proyecto es un **prototipo frontend** para una **aplicación web** de reserva de **traslados en taxi** desde los **aeropuertos de Tenerife** hacia cualquier destino de la isla.
+El **objetivo** es mostrar la **estructura**, **navegación** y **diseño** de la **interfaz**, cumpliendo los **requisitos** de **accesibilidad WCAG 2.1 AA**.
+
+El prototipo incluye cuatro interfaces obligatorias:
+
+* **Landing Page** (Inicio)
+
+* **Formulario de Solicitud de Reserva**
+
+* **Gestión de Reservas Existentes** (código + email)
+
+* **Formulario de Contacto**
+
+
+## Tecnologías utilizadas
+
+* **Astro** (framework principal)
+
+* **TailwindCSS**
+
+* **Componentes propios en Astro**
+
+* **HTML accesible**
+
+* **CSS global**
+
+## Estructura del proyecto
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── assets/              // Recursos gráficos
+├── components/          // Componentes reutilizables (Hero, Formularios, Navbar…)
+├── images/              // Imágenes del prototipo
+├── layouts/             // Layout global
+├── pages/               // Páginas principales del prototipo
+│   ├── index.astro      // Landing page
+│   ├── booking.astro    // Formulario de reserva
+│   ├── manage.astro     // Gestión de reservas
+│   └── contact.astro    // Formulario de contacto
+└── styles/              // Estilos globales
 ```
+## Cómo ejecutar el proyecto
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+1. **Instalar dependencias:**
 
-## 🧞 Commands
+   ```
+   npm install
+   ```
+2. **Iniciar el servidor de desarrollo:**
 
-All commands are run from the root of the project, from a terminal:
+    ```
+   npm run dev
+   ```
+3. **Abrir en el navegador:**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+   ```
+   http://localhost:***
+   ```
+## Accesibilidad (WCAG 2.1 AA)
 
-## 👀 Want to learn more?
+El prototipo incorpora varias **técnicas de accesibilidad**:
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+* **Skip link** para saltar al contenido principal.
+
+* Un **h1** por página para jerarquía correcta.
+
+* **Formularios accesibles** con:
+
+   * **label** asociado a cada control
+
+   * **name**, **autocomplete**, **aria-describedby**
+
+   * estructura preparada para **aria-invalid** y **mensajes de error**
+
+* Foco visible mediante **.focus-ring**
+
+* Imágenes decorativas con **alt=""**
+
+* **Componentes semánticos** (header, main, footer)
+
+* **Contraste** adecuado en botones y textos principales
+
+Estas técnicas se describen en detalle en el informe de accesibilidad adjunto.
+
+## Autores
+
+Proyecto desarrollado por **Iker Martín Gámez**, **Hugo Martín Gámez** y **Samuel Megolla Expósito**.
+
+Asignatura: **Usabilidad y Accesibilidad Web** (UYA)  
+**Universidad de La Laguna**
