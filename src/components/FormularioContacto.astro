@@ -1,0 +1,42 @@
+<form class="space-y-6">
+  <div class="space-y-2">
+    <label for="name" class="block font-semibold">Nombre Completo</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+    />
+  </div>
+
+  <div class="space-y-2">
+    <label for="email" class="block font-semibold">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+    />
+  </div>
+
+  <div class="space-y-2">
+    <label for="message" class="block font-semibold">Mensaje</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      required
+      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors"
+  >
+    Enviar Mensaje
+  </button>
+</form>

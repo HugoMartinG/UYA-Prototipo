@@ -1,0 +1,105 @@
+---
+import astroLogo from '../assets/astro.svg';
+import background from '../assets/background.svg';
+---
+
+<header>
+    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+         aria-label="Navegación principal">
+  
+      <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
+  
+        <!-- LOGO -->
+        <a href="/" class="flex items-center">
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
+            Taxi Tenerife
+          </span>
+        </a>
+  
+        <!-- BOTÓN MOBILE -->
+        <button id="menu-btn"
+          type="button"
+          class="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700"
+          aria-controls="mobile-menu"
+          aria-expanded="false">
+  
+          <span class="sr-only">Abrir menú</span>
+  
+          <!-- icono -->
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M3 5h14M3 10h14M3 15h14"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+  
+        <!-- MENÚ -->
+        <div id="mobile-menu"
+             class="hidden w-full lg:flex lg:w-auto lg:order-1">
+  
+          <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
+  
+            <li>
+              <a href="/"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:text-blue-700 dark:text-gray-300">
+                Inicio
+              </a>
+            </li>
+  
+            <li>
+              <a href="/reserva"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:text-blue-700 dark:text-gray-300">
+                Reservar
+              </a>
+            </li>
+  
+            <li>
+              <a href="/mis-reservas"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:text-blue-700 dark:text-gray-300">
+                Mis reservas
+              </a>
+            </li>
+  
+            <li>
+              <a href="/contacto"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:text-blue-700 dark:text-gray-300">
+                Contacto
+              </a>
+            </li>
+  
+          </ul>
+        </div>
+  
+        <!-- BOTONES DERECHA -->
+        <div class="hidden lg:flex items-center space-x-2">
+  
+          <a href="/login"
+             class="text-gray-800 hover:bg-gray-100 px-4 py-2 rounded-lg text-sm dark:text-white dark:hover:bg-gray-700">
+            Log in
+          </a>
+  
+          <a href="/reserva"
+             class="text-white bg-blue-700 hover:bg-blue-800 px-4 py-2 rounded-lg text-sm focus:ring-4 focus:ring-blue-300">
+            Reservar
+          </a>
+  
+        </div>
+  
+      </div>
+    </nav>
+  </header>
+  
+  <!-- SCRIPT PARA MOBILE -->
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+  
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+  
+        btn.setAttribute('aria-expanded', !expanded);
+        menu.classList.toggle('hidden');
+      });
+    });
+</script>

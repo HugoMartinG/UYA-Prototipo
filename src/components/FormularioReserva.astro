@@ -1,0 +1,60 @@
+<form class="p-8 space-y-6" aria-describedby="form-help">
+  <p id="form-help" class="sr-only">
+    Todos los campos son obligatorios.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-6">
+
+    <div class="space-y-2">
+      <label for="origin" class="block font-semibold">Origen (Aeropuerto)</label>
+      <select
+        id="origin"
+        name="origin"
+        required
+        autocomplete="off"
+        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+      >
+        <option value="">Selecciona...</option>
+        <option value="tfs">Tenerife Sur (TFS)</option>
+        <option value="tfn">Tenerife Norte (TFN)</option>
+      </select>
+    </div>
+
+    <div class="space-y-2">
+      <label for="dest" class="block font-semibold">Destino</label>
+      <input
+        type="text"
+        id="dest"
+        name="dest"
+        required
+        autocomplete="address-line1"
+        placeholder="Hotel o Ciudad"
+        class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+      />
+    </div>
+
+  </div>
+
+  <div class="space-y-2">
+    <label for="email" class="block font-semibold">Correo Electrónico</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      aria-describedby="email-help"
+      class="w-full p-3 bg-gray-50 border rounded-xl focus-ring"
+    />
+    <p id="email-help" class="text-sm text-gray-500">
+      Usaremos este correo para enviarte la confirmación.
+    </p>
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-amber-500 text-white font-bold py-4 rounded-xl hover:bg-amber-600 transition-colors focus-ring"
+  >
+    Confirmar Reserva
+  </button>
+</form>

@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CabeceraContacto from "../components/CabeceraContacto.astro";
+import InfoContacto from "../components/InfoContacto.astro";
+import FormularioContacto from "../components/FormularioContacto.astro";
+---
+
+<Layout title="Contacto">
+  <main class="max-w-5xl mx-auto py-12 px-4 grid md:grid-cols-2 gap-12">
+
+    <div class="space-y-8">
+      <CabeceraContacto />
+      <InfoContacto />
+    </div>
+
+    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl">
+      <FormularioContacto />
+    </div>
+
+  </main>
+</Layout>

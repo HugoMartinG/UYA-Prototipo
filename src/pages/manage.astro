@@ -1,0 +1,15 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CabeceraGestion from "../components/CabeceraGestion.astro";
+import FormularioGestion from "../components/FormularioGestion.astro";
+---
+
+<Layout title="Gestionar Reserva">
+  <main class="max-w-2xl mx-auto py-12 px-4">
+    <CabeceraGestion />
+
+    <div class="bg-white p-8 rounded-3xl border border-gray-100 shadow-xl">
+      <FormularioGestion />
+    </div>
+  </main>
+</Layout>

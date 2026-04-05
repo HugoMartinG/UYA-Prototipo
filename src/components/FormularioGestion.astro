@@ -1,0 +1,42 @@
+---
+import Icon from "./Icon.astro";
+---
+
+<form class="space-y-6">
+
+  <div class="space-y-2">
+    <label for="code" class="block font-semibold">Código de Reserva</label>
+    <input
+      type="text"
+      id="code"
+      name="code"
+      required
+      placeholder="Ej: TF12345"
+      autocomplete="off"
+      aria-describedby="code-help"
+      class="w-full p-4 bg-gray-50 border rounded-xl focus-ring uppercase"
+    />
+    <p id="code-help" class="text-sm text-gray-500">
+      Introduce el código que recibiste por email.
+    </p>
+  </div>
+
+  <div class="space-y-2">
+    <label for="email" class="block font-semibold">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      class="w-full p-4 bg-gray-50 border rounded-xl focus-ring"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-black transition-colors flex items-center justify-center gap-2 focus-ring"
+  >
+    <Icon name="search" size={20} /> Buscar Reserva
+  </button>
+</form>
