@@ -2,32 +2,51 @@
 import Icon from './Icon.astro';
 ---
 
-<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+<nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100" aria-label="Menú principal">
   <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
+
+    <!-- Logo -->
     <a href="/" class="flex items-center gap-2 focus-ring rounded-lg">
-      <div class="bg-amber-500 p-2 rounded-lg text-white"><Icon name="car" size={24} /></div>
-      <span class="font-serif text-xl font-bold">Tenerife<span class="text-amber-600">Taxi</span></span>
+      <div class="bg-amber-500 p-2 rounded-lg text-white">
+        <Icon name="car" size={24} />
+      </div>
+      <span class="font-serif text-xl font-bold">
+        Tenerife<span class="text-amber-600">Taxi</span>
+      </span>
     </a>
 
+    <!-- Navegación escritorio -->
     <div class="hidden md:flex items-center gap-8 font-medium text-gray-600">
-      <a href="/" class="hover:text-amber-600">Inicio</a>
+      <a href="/" aria-current="page" class="hover:text-amber-600">Inicio</a>
       <a href="/booking" class="hover:text-amber-600">Reservar</a>
       <a href="/manage" class="hover:text-amber-600">Mis Reservas</a>
       <a href="/contact" class="hover:text-amber-600">Contacto</a>
     </div>
 
-    <button id="menu-toggle" class="md:hidden p-2" aria-label="Menú">
+    <!-- Botón móvil -->
+    <button
+      id="menu-toggle"
+      class="md:hidden p-2 focus-ring rounded-lg"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <Icon name="menu" id="menu-icon" />
       <Icon name="x" id="close-icon" class="hidden" />
     </button>
   </div>
 
-  <div id="mobile-menu" class="hidden md:hidden bg-white border-b p-4 space-y-4 flex flex-col">
-    <a href="/" class="text-lg font-medium">Inicio</a>
-    <a href="/booking" class="text-lg font-medium">Reservar</a>
-    <a href="/manage" class="text-lg font-medium">Mis Reservas</a>
-    <a href="/contact" class="text-lg font-medium">Contacto</a>
-    <a href="/accessibility" class="text-lg font-medium">Accesibilidad</a>
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-b p-4 space-y-4 flex flex-col"
+    role="menu"
+  >
+    <a href="/" role="menuitem" class="text-lg font-medium">Inicio</a>
+    <a href="/booking" role="menuitem" class="text-lg font-medium">Reservar</a>
+    <a href="/manage" role="menuitem" class="text-lg font-medium">Mis Reservas</a>
+    <a href="/contact" role="menuitem" class="text-lg font-medium">Contacto</a>
+    <a href="/accessibility" role="menuitem" class="text-lg font-medium">Accesibilidad</a>
   </div>
 </nav>
 
@@ -38,8 +57,10 @@ import Icon from './Icon.astro';
   const closeIcon = document.getElementById('close-icon');
 
   toggle?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-    menuIcon?.classList.toggle('hidden');
-    closeIcon?.classList.toggle('hidden');
+    const isHidden = menu.classList.toggle('hidden');
+
+    toggle.setAttribute('aria-expanded', !isHidden);
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
   });
 </script>
