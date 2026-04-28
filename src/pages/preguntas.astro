@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CabeceraPreguntas from "../components/CabeceraPreguntas.astro";
+import AcordeonFaq from "../components/AcordeonFaq.astro";
+import CTAContacto from "../components/CTAContacto.astro";
+---
+
+<Layout title="Preguntas Frecuentes">
+  <main class="max-w-5xl mx-auto py-12 px-4 grid md:grid-cols-2 gap-12">
+    
+    <div class="space-y-12">
+      <CabeceraPreguntas />
+      <CTAContacto />
+    </div>
+
+    <div class="space-y-4">
+      <h2 class="text-xs font-bold text-amber-600 uppercase tracking-widest mb-6">Dudas generales</h2>
+      
+      <AcordeonFaq 
+        pregunta="¿Dónde me espera el conductor?" 
+        respuesta="En la sala de llegadas del aeropuerto con un cartel a tu nombre." 
+      />
+      
+      <AcordeonFaq 
+        pregunta="¿Cómo puedo cancelar mi reserva?" 
+        respuesta="Puedes cancelar gratuitamente hasta 24h antes a través del enlace en tu email de confirmación." 
+      />
+
+      <AcordeonFaq 
+        pregunta="¿El precio es por persona o por vehículo?" 
+        respuesta="El precio mostrado en el formulario es por el vehículo completo. Incluye impuestos y peajes." 
+      />
+
+      <AcordeonFaq 
+        pregunta="¿Qué ocurre si el vuelo se retrasa?" 
+        respuesta="Monitorizamos los vuelos. Si hay retraso, el conductor ajusta la recogida sin coste extra." 
+      />
+      
+      <div class="pt-6">
+        <a href="/" class="text-sm font-bold text-gray-400 hover:text-amber-600 transition-colors">
+          ← Volver a realizar una reserva
+        </a>
+      </div>
+    </div>
+
+  </main>
+</Layout>
