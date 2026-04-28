@@ -1,0 +1,24 @@
+---
+interface Props {
+  pregunta: string;
+  respuesta: string;
+}
+const { pregunta, respuesta } = Astro.props;
+---
+<details class="group bg-white rounded-2xl border border-gray-100 shadow-sm transition-all hover:border-amber-200">
+  <summary class="flex justify-between items-center p-5 cursor-pointer list-none font-bold text-gray-800">
+    {pregunta}
+    <span class="text-amber-500 group-open:rotate-180 transition-transform duration-300">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+      </svg>
+    </span>
+  </summary>
+  <div class="px-5 pb-5 text-gray-600 text-sm leading-relaxed border-t border-gray-50 pt-3">
+    {respuesta}
+  </div>
+</details>
+
+<style>
+  summary::-webkit-details-marker { display: none; }
+</style>
