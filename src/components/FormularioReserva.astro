@@ -6,17 +6,10 @@
   </div>
 
   <fieldset class="space-y-6">
-    <legend class="sr-only">Datos del traslado</legend>
-
     <div class="grid md:grid-cols-2 gap-8">
       <div class="space-y-3">
         <label for="origin" class="block font-bold text-gray-800">Origen (Aeropuerto)</label>
-        <select
-          id="origin"
-          name="origin"
-          required
-          class="w-full p-3.5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 focus:ring-0 outline-none transition-all cursor-pointer"
-        >
+        <select id="origin" name="origin" required class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 focus:ring-0 outline-none transition-all cursor-pointer">
           <option value="">Selecciona aeropuerto...</option>
           <option value="tfs">Tenerife Sur (TFS)</option>
           <option value="tfn">Tenerife Norte (TFN)</option>
@@ -25,22 +18,16 @@
 
       <div class="space-y-3">
         <label for="dest" class="block font-bold text-gray-800">Destino</label>
-        <select
-          id="dest"
-          name="dest"
-          required
-          class="w-full p-3.5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 focus:ring-0 outline-none transition-all cursor-pointer"
-        >
+        <select id="dest" name="dest" required class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 focus:ring-0 outline-none transition-all cursor-pointer">
           <option value="" data-price="0">Selecciona zona...</option>
           <option value="adeje" data-price="25">Costa Adeje</option>
           <option value="cristianos" data-price="20">Los Cristianos</option>
           <option value="santa-cruz" data-price="65">Santa Cruz</option>
           <option value="puerto-cruz" data-price="90">Puerto de la Cruz</option>
         </select>
-
         <div class="flex flex-wrap gap-2 pt-1">
-          <button type="button" class="quick-dest text-[10px] font-bold bg-white border border-gray-200 px-2 py-1 rounded-lg hover:border-amber-500 hover:bg-amber-50 transition-all shadow-sm" data-value="adeje">📍 Costa Adeje</button>
-          <button type="button" class="quick-dest text-[10px] font-bold bg-white border border-gray-200 px-2 py-1 rounded-lg hover:border-amber-500 hover:bg-amber-50 transition-all shadow-sm" data-value="cristianos">📍 Los Cristianos</button>
+          <button type="button" class="quick-dest text-[10px] font-bold bg-white border border-gray-200 px-3 py-1 rounded-full hover:border-amber-500 hover:bg-amber-50 transition-all shadow-sm" data-value="adeje">📍 Costa Adeje</button>
+          <button type="button" class="quick-dest text-[10px] font-bold bg-white border border-gray-200 px-3 py-1 rounded-full hover:border-amber-500 hover:bg-amber-50 transition-all shadow-sm" data-value="cristianos">📍 Los Cristianos</button>
         </div>
       </div>
     </div>
@@ -48,73 +35,85 @@
 
   <div class="grid md:grid-cols-2 gap-8">
     <div class="space-y-3">
-      <label class="block font-bold text-gray-800">Pasajeros</label>
-      <div class="flex items-center gap-4 bg-gray-100 p-1.5 rounded-2xl border-2 border-gray-100">
-        <button type="button" id="btn-minus" class="w-10 h-10 flex items-center justify-center bg-white rounded-xl hover:bg-gray-50 shadow-sm font-bold text-xl">-</button>
-        <input id="passengers" name="passengers" value="1" readonly class="w-12 text-center bg-transparent font-bold text-lg outline-none" />
-        <button type="button" id="btn-plus" class="w-10 h-10 flex items-center justify-center bg-white rounded-xl hover:bg-gray-50 shadow-sm font-bold text-xl">+</button>
+      <label for="date" class="block font-bold text-gray-800">Fecha y Hora de Recogida</label>
+      <div class="relative">
+        <input 
+          type="datetime-local" 
+          id="date" 
+          name="date" 
+          required 
+          class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 outline-none transition-all text-gray-600 font-medium"
+        />
       </div>
-      <p id="vehicle-info" class="text-[11px] text-gray-500 font-medium italic">🚗 Vehículo estándar (1-4 personas)</p>
     </div>
 
     <div class="space-y-3">
-      <label for="email" class="block font-bold text-gray-800">Correo Electrónico</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        placeholder="tu@email.com"
-        class="w-full p-3.5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 focus:ring-0 outline-none transition-all"
-      />
+      <label class="block font-bold text-gray-800">Pasajeros</label>
+      <div class="flex items-center justify-between bg-white border-2 border-gray-100 p-2 rounded-2xl shadow-sm">
+        <button type="button" id="btn-minus" class="w-12 h-12 flex items-center justify-center bg-gray-50 text-gray-600 rounded-xl hover:bg-amber-500 hover:text-white transition-all font-black text-xl shadow-sm">-</button>
+        
+        <div class="text-center px-4">
+          <span id="passengers-display" class="text-2xl font-black text-gray-900 block">1</span>
+          <span class="text-[10px] uppercase font-bold text-gray-400 tracking-tighter">Personas</span>
+        </div>
+        <input type="hidden" id="passengers" name="passengers" value="1" />
+        
+        <button type="button" id="btn-plus" class="w-12 h-12 flex items-center justify-center bg-gray-50 text-gray-600 rounded-xl hover:bg-amber-500 hover:text-white transition-all font-black text-xl shadow-sm">+</button>
+      </div>
+      <p id="vehicle-info" class="text-center text-[11px] font-bold text-gray-400 uppercase tracking-widest mt-2">🚗 Sedán Estándar</p>
     </div>
   </div>
 
-  <div id="price-card" class="hidden bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 p-6 rounded-3xl shadow-inner transition-all duration-500">
-    <div class="flex justify-between items-end">
-      <div class="space-y-1">
-        <p class="text-xs font-bold text-amber-700 uppercase tracking-tighter">Precio Total Estimado</p>
-        <div id="total-price" class="text-5xl font-black text-amber-600 tabular-nums">0€</div>
+  <div class="space-y-3">
+    <label for="email" class="block font-bold text-gray-800">Correo Electrónico de Confirmación</label>
+    <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com" class="w-full p-4 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-amber-500 outline-none transition-all" />
+  </div>
+
+  <div id="price-card" class="hidden bg-gradient-to-br from-gray-900 to-gray-800 border-none p-8 rounded-3xl shadow-2xl transition-all duration-500 relative overflow-hidden">
+    <div class="absolute -right-4 -top-4 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl"></div>
+    
+    <div class="flex justify-between items-center relative z-10">
+      <div class="space-y-1 text-white">
+        <p class="text-amber-500 text-xs font-black uppercase tracking-widest">Precio Final</p>
+        <div id="total-price" class="text-5xl font-black tabular-nums">0€</div>
       </div>
-      <div class="text-right hidden sm:block">
-         <p id="summary-text" class="text-xs text-amber-800 italic max-w-[200px]">Selecciona trayecto</p>
+      <div class="text-right text-gray-400">
+         <p id="summary-text" class="text-[11px] font-medium leading-tight max-w-[150px]">Configura tu trayecto</p>
+         <span class="text-[10px] text-green-400 font-bold block mt-2">● Pago al conductor</span>
       </div>
     </div>
   </div>
 
-  <button
-    type="submit"
-    class="w-full bg-amber-500 text-white font-black py-5 rounded-2xl hover:bg-amber-600 transition-all shadow-xl shadow-amber-200 active:scale-[0.98] text-lg uppercase"
-  >
+  <button type="submit" class="w-full bg-amber-500 text-white font-black py-5 rounded-2xl hover:bg-amber-600 transition-all shadow-xl shadow-amber-200 active:scale-[0.98] text-lg uppercase tracking-tight">
     Confirmar Reserva
   </button>
 </form>
 
-<div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-  <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-in zoom-in duration-300">
-    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
-      ✓
+<div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
+  <div class="bg-white rounded-[2.5rem] p-10 max-w-sm w-full text-center shadow-2xl animate-in zoom-in duration-300">
+    <div class="w-24 h-24 bg-green-50 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+      </svg>
     </div>
-    <h2 class="text-2xl font-black text-gray-900 mb-2">¡Reserva Realizada!</h2>
-    <p class="text-gray-500 mb-8">Te hemos enviado los detalles del traslado a tu correo electrónico.</p>
-    <button id="close-modal" class="w-full bg-gray-900 text-white font-bold py-4 rounded-xl hover:bg-gray-800 transition-colors">
-      Entendido
+    <h2 class="text-3xl font-black text-gray-900 mb-2 tracking-tight">¡Todo listo!</h2>
+    <p class="text-gray-500 text-sm mb-8 leading-relaxed">Tu taxi ha sido reservado. Te hemos enviado un email con los detalles.</p>
+    <button id="close-modal" class="w-full bg-gray-900 text-white font-bold py-4 rounded-2xl hover:bg-gray-800 transition-all shadow-lg active:scale-95">
+      Finalizar
     </button>
   </div>
 </div>
 
 <script>
-  // Elementos
   const form = document.getElementById('booking-form');
   const originSelect = document.getElementById('origin');
   const destSelect = document.getElementById('dest');
   const passengersInput = document.getElementById('passengers');
+  const passengersDisplay = document.getElementById('passengers-display');
   const priceCard = document.getElementById('price-card');
   const totalPriceDisplay = document.getElementById('total-price');
-  const vehicleInfo = document.getElementById('vehicle-info');
   const summaryText = document.getElementById('summary-text');
-  
-  // Modal
+  const vehicleInfo = document.getElementById('vehicle-info');
   const modal = document.getElementById('success-modal');
   const closeModal = document.getElementById('close-modal');
 
@@ -124,28 +123,29 @@
     const passengers = parseInt(passengersInput.value);
     const basePrice = parseFloat(destOption.getAttribute('data-price') || "0");
 
+    passengersDisplay.textContent = passengers;
+
     if (origin && basePrice > 0) {
       let finalPrice = basePrice;
-      let vText = "🚗 Vehículo estándar (1-4 personas)";
+      let vText = "🚗 Sedán Estándar (1-4 pers.)";
       
       if (passengers > 4) {
         finalPrice = basePrice * 1.5;
-        vText = "🚐 Vehículo tipo Van (5-8 personas)";
-        vehicleInfo.classList.add('text-amber-600', 'font-bold');
+        vText = "🚐 Van Premium (5-8 pers.)";
+        vehicleInfo.classList.replace('text-gray-400', 'text-amber-600');
       } else {
-        vehicleInfo.classList.remove('text-amber-600', 'font-bold');
+        vehicleInfo.classList.replace('text-amber-600', 'text-gray-400');
       }
 
       totalPriceDisplay.textContent = `${Math.round(finalPrice)}€`;
       vehicleInfo.textContent = vText;
-      summaryText.textContent = `Desde Aeropuerto ${origin.toUpperCase()} hasta ${destOption.text}`;
-      priceCard.classList.remove('hidden');
+      summaryText.textContent = `Desde ${origin.toUpperCase()} hasta ${destOption.text} para ${passengers} personas.`;
+      priceCard.classList.remove('hidden', 'opacity-0');
     } else {
       priceCard.classList.add('hidden');
     }
   }
 
-  // Shortcuts de Sugerencias
   document.querySelectorAll('.quick-dest').forEach(btn => {
     btn.addEventListener('click', () => {
       destSelect.value = btn.dataset.value;
@@ -153,17 +153,14 @@
     });
   });
 
-  // Botones Pasajeros
   document.getElementById('btn-minus').onclick = () => { if(passengersInput.value > 1) { passengersInput.value--; updateUI(); } };
   document.getElementById('btn-plus').onclick = () => { if(passengersInput.value < 8) { passengersInput.value++; updateUI(); } };
 
   originSelect.onchange = updateUI;
   destSelect.onchange = updateUI;
 
-  // Manejo del Pop-up
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    // Mostramos el modal
     modal.classList.remove('hidden');
   });
 
